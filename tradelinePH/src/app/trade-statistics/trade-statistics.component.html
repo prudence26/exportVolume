@@ -1,0 +1,198 @@
+<div style = 'overflow-x:hidden;'>
+
+    <nav class = "navbar navbar-expand-lg">  
+      <div class = "top">
+        <p class = "head">Trade Statistics</p>
+      </div>
+    </nav>
+  
+    
+    <div class="body">
+      <div class='row'>
+  <!-- ============================== LEFT PANE ==============================       -->
+
+  <div class='col-md-3 leftPane'>
+
+        <div *ngIf="isExportHidden==false">
+                <app-import></app-import>
+        </div>
+  
+      <div class="navSelectTrade" >
+        <h4 class="selectTrade">Select Trade</h4>
+      </div>
+  
+  <!-- SELECT GROUP BUTTON -->
+  <kendo-buttongroup class="selectGroupButton" [selection]="'single'" *ngIf="isExportHidden==true">
+      <button class="selectGroupItem" kendoButton [togglable]="true" (click)="showExport()" [primary]="true">Export</button>
+      <button class="selectGroupItem" kendoButton [togglable]="true" (click)="showImport()">Import</button>
+      <button class="selectGroupItem" kendoButton [togglable]="true" >Total Trade</button>
+  </kendo-buttongroup>
+
+
+  
+  <!-- SELECT REPORT TEXT -->
+    <div class="navSelectReport" *ngIf="isExportHidden==true">
+        <h4 class="selectReport">Select Report</h4>
+    </div>
+  
+    <div *ngIf="isExportHidden==true">
+        <kendo-combobox class="dropDownReport" [data]="reportItems" [placeholder]="'Regional Bloc and Product'">
+        </kendo-combobox>
+    </div>
+  
+  <!-- FILTERS -->
+  <div class="navFilters" *ngIf="isExportHidden==true">
+      <h4 class="filters">Filters</h4>
+  </div>
+  
+  <!-- DATE PICKER HERE ! ! ! -->
+  
+  
+  <!-- MONTH -->
+  <div class="navMonth" *ngIf="isExportHidden==true">
+      <h4 class="month">Month</h4>
+  </div>
+  
+  <div *ngIf="isExportHidden==true">
+      <kendo-combobox class="dropDownMonth" [data]="months" [placeholder]="'Select Month/s'">
+      </kendo-combobox>
+  </div>
+  
+  <!-- QUARTER -->
+  <div class="navQuarter" *ngIf="isExportHidden==true">
+      <h4 class="quarter">Quarter</h4>
+  </div>
+  
+  <div *ngIf="isExportHidden==true">
+      <kendo-combobox class="dropDownQuarter" [data]="quarters" [placeholder]="'Select Quarter/s'">
+      </kendo-combobox>
+  </div>
+  
+  <!-- SELECT REGIONAL BLOC -->
+  <div class="navSelectRegionalBloc" *ngIf="isExportHidden==true">
+      <h4 class="selectregionalbloc">Select Regional Bloc</h4>
+  </div>
+  
+  <div *ngIf="isExportHidden==true">
+      <kendo-combobox class="dropDownSelectRegionalBloc" [data]="regionalBlocs" [placeholder]="'Select Regional Bloc/s'">
+      </kendo-combobox>
+  </div>
+  
+  <!-- SELECT REGIONAL SUB -->
+  <div class="navSelectRegionalSub" *ngIf="isExportHidden==true">
+      <h4 class="selectregionalsub">Select Regional Sub</h4>
+  </div>
+  
+  <div *ngIf="isExportHidden==true">
+    <kendo-combobox class="dropDownSelectRegionalSub" [data]="regionalSubs" [placeholder]="'Select Regional Sub/s'">
+    </kendo-combobox>
+  </div>
+  
+  <!-- SELECT PRODUCT CODE -->
+  <div class="navSelectProductCode" *ngIf="isExportHidden==true">
+      <h4 class="selectproductcode">Select Product Code</h4>
+  </div>
+  
+  <div *ngIf="isExportHidden==true">
+    <kendo-combobox class="dropDownSelectProductCode" [data]="productCodes" [placeholder]="'Select Product Code/s'">
+    </kendo-combobox>
+  </div>
+  
+  <!-- SELECT PRODUCT DESCRIPTION -->
+  <div class="navSelectProductDesc" *ngIf="isExportHidden==true">
+      <h4 class="selectproductdesc">Select Product Description</h4>
+  </div>
+  
+  <div *ngIf="isExportHidden==true">
+    <kendo-combobox class="dropDownSelectProductDesc" [data]="productDescs" [placeholder]="'Select Product Desc/s'">
+    </kendo-combobox>
+  </div>
+  
+  </div>
+  <!-- ============================== END OF LEFT PANE ============================= -->
+  
+  <!-- ============================== MIDDLE PANE ================================== -->
+  <div class='col-md-6 midPane'>
+  
+          <div class="navregionalBlocandProductCode">
+              <h4 class="regionalBlocandProductCode">Regional Bloc and Product Group</h4>
+          </div>
+    
+      <kendo-tabstrip class="tab">
+          <kendo-tabstrip-tab [title]="'Graph'" [selected]="true">
+            <ng-template kendoTabContent>
+  
+  
+          <div>
+              <kendo-combobox class="dropdownChart" [data]="charts" [placeholder]="'Select Chart'">
+              </kendo-combobox>
+          </div>
+  
+          <div>
+              <img class="dtiLogo" src="http://www.edc.net.ph/wp-content/uploads/2017/06/official-EMB-DTI-Logo-colored-1-300x175.png">
+              <span class="sideLogoText">Philippine Merchandise Export to the World in (is US$) Regional Bloc and Product Code</span>
+              <!-- <span class="sideLogoText2">Regional Bloc and Product Code</span> -->
+          </div>  
+  
+  
+            </ng-template>
+          </kendo-tabstrip-tab>
+          <kendo-tabstrip-tab [title]="'Table'">
+            <ng-template kendoTabContent>
+              <p>
+              Test2
+              </p>
+            </ng-template>
+          </kendo-tabstrip-tab>
+          <!-- <kendo-tabstrip-tab [title]="'Football'">
+            <ng-template kendoTabContent>
+              <p>
+               Test3
+              </p>
+            </ng-template>
+          </kendo-tabstrip-tab> -->
+        </kendo-tabstrip>
+  
+  </div>
+  <!-- ============================== END OF MIDDLE PANE =========================== -->
+  
+  <!-- ============================== LEFT PANE ==================================== -->
+  <div class='col-md-3 rightPane'>
+  
+      <div class="navQuickStats">
+          <h4 class="quickStats">Quick Stats</h4>
+      </div>
+  
+      <div>
+        <kendo-combobox class="dropDownExport" [data]="exports" [placeholder]="'Export'">
+        </kendo-combobox>
+      </div>
+  
+      <div class="box">
+          <div class="boxItem1">
+            <a href="#">Top 10 Export</a>
+          </div>
+          <div class="boxItem2">
+            <a href="#">Top 10 Countries</a>
+          </div>
+      </div>
+  
+        <div>
+            <kendo-combobox class="dropDownImport" [data]="imports" [placeholder]="'Import'">
+            </kendo-combobox>
+        </div>
+  
+        <div>
+            <kendo-combobox class="dropDownTotalTrade" [data]="totalTrades" [placeholder]="'Total Trade'">
+            </kendo-combobox>
+        </div>
+  
+  </div>
+  <!-- ============================== END OF LEFT PANE ============================= -->
+  
+      </div>
+    </div>
+  
+  </div>
+  
+  

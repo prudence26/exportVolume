@@ -1,0 +1,14 @@
+ng new filename --style=scss --routing
+npm install --save @angular/animations
+npm i bootstrap
+
+
+//
+npm install --save @angular/material @angular/cdk
+npm install --save hammerjs
+npm install chart.js --save
+ng generate service weather
+npm i jquery
+npm i popper.js
+
+npm install --save @angular/material@5.2.5 @angular/cdk@5.2.5

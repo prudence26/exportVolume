@@ -1,0 +1,17 @@
+  <!-- ============================== LEFT PANE ==============================       -->
+
+
+        <!-- <div *ngIf="isExportShow==true">
+                <app-trade-statistics></app-trade-statistics>
+        </div> -->
+
+<div class="navSelectTrade" >
+        <h4 class="selectTrade">Select Trade</h4>
+</div>
+
+  <!-- SELECT GROUP BUTTON -->
+  <kendo-buttongroup class="selectGroupButton" [selection]="'single'" >
+        <button class="selectGroupItem" kendoButton [togglable]="true" (click)="showExport()" >Export</button>
+        <button class="selectGroupItem" kendoButton [togglable]="true" (click)="showImport()" [primary]="true">Import</button>
+        <button class="selectGroupItem" kendoButton [togglable]="true" >Total Trade</button>
+  </kendo-buttongroup>
